@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로봇소프트웨어과 - 동양미래대학교</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <!-- Material Symbols (display=block to prevent text flash) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block" />
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* FOUC (Flash of Unstyled Content) Prevention */
+        body { opacity: 0; }
+        .fonts-loaded body { opacity: 1; transition: opacity 0.2s ease-in; }
+    </style>
+    <script>
+        // Wait for all fonts to be ready
+        if ("fonts" in document) {
+            document.fonts.ready.then(function () {
+                document.documentElement.classList.add("fonts-loaded");
+            });
+        } else {
+            // Fallback for older browsers
+            document.documentElement.classList.add("fonts-loaded");
+        }
+        // Timeout to ensure content shows even if font loading fails
+        setTimeout(function() {
+            document.documentElement.classList.add("fonts-loaded");
+        }, 800);
+    </script>
+</head>
+<body>
+
+    <!-- Header / Top Nav -->
+    <header class="top-nav">
+        <div class="container top-nav-inner">
+            <div class="logo">
+                <span class="logo-icon">///</span> 동양미래대학교
+            </div>
+            <nav class="global-menu">
+                <a href="#">대학소개</a>
+                <a href="#">입학</a>
+                <a href="#" class="active">학부·학과</a>
+                <a href="#">학사안내</a>
+                <a href="#">대학생활</a>
+                <a href="#">대학공지</a>
+                <a href="#">대학뉴스</a>
+                <a href="#">사이트맵</a>
+                <a href="#" class="quick-menu">QUICK MENU</a>
+            </nav>
+            <div class="utils">
+                <span class="lang-sel">KR ▾</span>
+                <span class="material-symbols-outlined search-icon">search</span>
+                <button class="btn-login">로그인</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub Nav -->
+    <nav class="sub-nav">
+        <div class="container sub-nav-inner">
+            <h1 class="dept-title">로봇소프트웨어과</h1>
+            <div class="dept-menu">
+                <a href="#">학과소개</a>
+                <a href="#">교육과정</a>
+                <a href="#">교수소개</a>
+                <a href="#">학과앨범</a>
+                <a href="#">학과공지</a>
+                <a href="#">전공동아리</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container main-layout">
+        
+        <div class="grid-layout">
+            <!-- Hero Banner -->
+            <div class="grid-item hero-banner">
+                <img src="./hero_banner.png" alt="Hero Background" class="hero-bg">
+                <div class="hero-content">
+                    <h2>로봇소프트웨어과</h2>
+                    <p>로봇소프트웨어 분야를 이끌 인재양성의 중심</p>
+                    <h1>Robot Software</h1>
+                </div>
+                <div class="hero-contact">
+                    <span><span class="material-symbols-outlined icon-small">location_on</span> 4호관 206호</span>
+                    <span><span class="material-symbols-outlined icon-small">call</span> 02-2610-1832</span>
+                    <span><span class="material-symbols-outlined icon-small">mail</span> yjyang@dongyang.ac.kr</span>
+                </div>
+            </div>
+
+            <!-- 학과공지 -->
+            <div class="grid-item notice-box">
+                <div class="box-header">
+                    <h3>학과공지</h3>
+                    <button class="btn-more"><span class="material-symbols-outlined">add</span></button>
+                </div>
+                <ul class="notice-list-new">
+                    <li>
+                        <a href="#">[반도체협회] 부트캠프 전문대학 대상 ASM 코리아 3차 채용 공고(부트캠프 대학 우선 채용)</a>
+                        <span class="date">2026.04.28</span>
+                    </li>
+                    <li>
+                        <a href="#">2026학년도 1학기 『일반 질병』 출석 인정 절차 변경 안내</a>
+                        <span class="date">2026.04.23</span>
+                    </li>
+                    <li>
+                        <a href="#">스마트팩토리실무(C4강좌) 휴보강 공지</a>
+                        <span class="date">2026.04.17</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 주요 서비스 -->
+            <div class="grid-item service-box">
+                <div class="box-header">
+                    <h3>주요 서비스</h3>
+                </div>
+                <div class="service-grid-new">
+                    <div class="s-item"><span class="material-symbols-outlined s-icon">language</span><span>e 서비스</span></div>
+                    <div class="s-item"><span class="material-symbols-outlined s-icon">menu_book</span><span>도서관</span></div>
+                    <div class="s-item"><span class="material-symbols-outlined s-icon">desktop_windows</span><span>수강신청</span></div>
+                    <div class="s-item"><span class="material-symbols-outlined s-icon">description</span><span>증명서 발급</span></div>
+                    <div class="s-item"><span class="material-symbols-outlined s-icon">corporate_fare</span><span>MS오피스 365</span></div>
+                    <div class="s-item"><span class="material-symbols-outlined s-icon">badge</span><span>학생종합관리</span></div>
+                </div>
+            </div>
+
+            <!-- 전공동아리 -->
+            <div class="grid-item club-box">
+                <div class="box-header-alt club-header">
+                    <h3>전공동아리</h3>
+                    <div class="club-tabs">
+                        <button class="active">MAS</button>
+                        <button>MCA</button>
+                        <button>MoAS</button>
+                        <button>SMART</button>
+                        <button>UR</button>
+                        <button>지능형로봇</button>
+                    </div>
+                </div>
+                <div class="club-content">
+                    <div class="club-info">
+                        <h4>MAS</h4>
+                        <p>MAS는 학교에서 배우는 것 뿐만 아니라 더 나아가 사회에 도움이 될 수 있는 로봇을 직접 만들어 각종 대회에 출전해 학생들끼리 서로 협업을 하며 자신의 전공지식과 역량을 같이 키워나가는 로봇자동화공학부 전공동아리입니다.</p>
+                    </div>
+                    <div class="club-image">
+                        <img src="./club_mas.png" alt="MAS Club">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 자유게시판 -->
+            <div class="grid-item freeboard-box">
+                <div class="box-header-alt">
+                    <h3>자유게시판</h3>
+                    <button id="btn-write-post" class="btn-write">글쓰기</button>
+                </div>
+                <div class="board-list" id="board-list">
+                    <!-- Posts will be loaded here dynamically -->
+                    <p class="loading-text">게시글을 불러오는 중...</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal for Writing/Editing Post -->
+    <div id="post-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">새 게시글 작성</h3>
+            <input type="text" id="post-title" placeholder="제목을 입력하세요">
+            <textarea id="post-body" placeholder="내용을 입력하세요"></textarea>
+            <input type="text" id="post-author" placeholder="작성자 이름">
+            <input type="password" id="post-password" placeholder="비밀번호 (수정/삭제 시 필요)">
+            <div class="modal-actions">
+                <button id="btn-save-post" class="btn-primary">저장</button>
+                <button id="btn-close-modal" class="btn-secondary">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs (Compat version for simplicity) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
