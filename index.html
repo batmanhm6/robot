@@ -3,192 +3,1048 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로봇소프트웨어과 - 동양미래대학교</title>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <meta name="description" content="동양미래대학교 피지컬 AI 강의 자료 기반의 기술 소개 포털. 보는 AI에서 물리 세상을 직접 움직이는 행동하는 AI로의 변화와 핵심 기술을 알아봅니다.">
+    <title>Physical AI | 행동하는 AI의 시대</title>
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Pretendard Font -->
-    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <!-- Material Symbols (display=block to prevent text flash) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block" />
-    <link rel="stylesheet" href="style.css">
-    
-    <style>
-        /* FOUC (Flash of Unstyled Content) Prevention */
-        body { opacity: 0; }
-        .fonts-loaded body { opacity: 1; transition: opacity 0.2s ease-in; }
-    </style>
-    <script>
-        // Wait for all fonts to be ready
-        if ("fonts" in document) {
-            document.fonts.ready.then(function () {
-                document.documentElement.classList.add("fonts-loaded");
-            });
-        } else {
-            // Fallback for older browsers
-            document.documentElement.classList.add("fonts-loaded");
-        }
-        // Timeout to ensure content shows even if font loading fails
-        setTimeout(function() {
-            document.documentElement.classList.add("fonts-loaded");
-        }, 800);
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Header / Top Nav -->
-    <header class="top-nav">
-        <div class="container top-nav-inner">
-            <div class="logo">
-                <span class="logo-icon">///</span> 동양미래대학교
+    <!-- 0. App Loader (Wembi Style) -->
+    <div id="app-loader">
+        <div class="loader-content">
+            <h3 class="loader-title">
+                <span class="word-mask"><span class="loader-word">The</span></span>
+                <span class="word-mask"><span class="loader-word">Era</span></span>
+                <span class="word-mask"><span class="loader-word">of</span></span>
+                <span class="word-mask"><span class="loader-word">Physical</span></span>
+                <span class="word-mask"><span class="loader-word">AI</span></span>
+            </h3>
+            <div class="loader-progress-container">
+                <div class="loader-progress-bar"></div>
             </div>
-            <nav class="global-menu">
-                <a href="#">대학소개</a>
-                <a href="#">입학</a>
-                <a href="#" class="active">학부·학과</a>
-                <a href="#">학사안내</a>
-                <a href="#">대학생활</a>
-                <a href="#">대학공지</a>
-                <a href="#">대학뉴스</a>
-                <a href="#">사이트맵</a>
-                <a href="#" class="quick-menu">QUICK MENU</a>
-            </nav>
-            <div class="utils">
-                <span class="lang-sel">KR ▾</span>
-                <span class="material-symbols-outlined search-icon">search</span>
-                <button class="btn-login">로그인</button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Sub Nav -->
-    <nav class="sub-nav">
-        <div class="container sub-nav-inner">
-            <h1 class="dept-title">로봇소프트웨어과</h1>
-            <div class="dept-menu">
-                <a href="#">학과소개</a>
-                <a href="#">교육과정</a>
-                <a href="#">교수소개</a>
-                <a href="#">학과앨범</a>
-                <a href="#">학과공지</a>
-                <a href="#">전공동아리</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container main-layout">
-        
-        <div class="grid-layout">
-            <!-- Hero Banner -->
-            <div class="grid-item hero-banner">
-                <img src="./hero_banner.png" alt="Hero Background" class="hero-bg">
-                <div class="hero-content">
-                    <h2>로봇소프트웨어과</h2>
-                    <p>로봇소프트웨어 분야를 이끌 인재양성의 중심</p>
-                    <h1>Robot Software</h1>
-                </div>
-                <div class="hero-contact">
-                    <span><span class="material-symbols-outlined icon-small">location_on</span> 4호관 206호</span>
-                    <span><span class="material-symbols-outlined icon-small">call</span> 02-2610-1832</span>
-                    <span><span class="material-symbols-outlined icon-small">mail</span> yjyang@dongyang.ac.kr</span>
-                </div>
-            </div>
-
-            <!-- 학과공지 -->
-            <div class="grid-item notice-box">
-                <div class="box-header">
-                    <h3>학과공지</h3>
-                    <button class="btn-more"><span class="material-symbols-outlined">add</span></button>
-                </div>
-                <ul class="notice-list-new">
-                    <li>
-                        <a href="#">[반도체협회] 부트캠프 전문대학 대상 ASM 코리아 3차 채용 공고(부트캠프 대학 우선 채용)</a>
-                        <span class="date">2026.04.28</span>
-                    </li>
-                    <li>
-                        <a href="#">2026학년도 1학기 『일반 질병』 출석 인정 절차 변경 안내</a>
-                        <span class="date">2026.04.23</span>
-                    </li>
-                    <li>
-                        <a href="#">스마트팩토리실무(C4강좌) 휴보강 공지</a>
-                        <span class="date">2026.04.17</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- 주요 서비스 -->
-            <div class="grid-item service-box">
-                <div class="box-header">
-                    <h3>주요 서비스</h3>
-                </div>
-                <div class="service-grid-new">
-                    <div class="s-item"><span class="material-symbols-outlined s-icon">language</span><span>e 서비스</span></div>
-                    <div class="s-item"><span class="material-symbols-outlined s-icon">menu_book</span><span>도서관</span></div>
-                    <div class="s-item"><span class="material-symbols-outlined s-icon">desktop_windows</span><span>수강신청</span></div>
-                    <div class="s-item"><span class="material-symbols-outlined s-icon">description</span><span>증명서 발급</span></div>
-                    <div class="s-item"><span class="material-symbols-outlined s-icon">corporate_fare</span><span>MS오피스 365</span></div>
-                    <div class="s-item"><span class="material-symbols-outlined s-icon">badge</span><span>학생종합관리</span></div>
-                </div>
-            </div>
-
-            <!-- 전공동아리 -->
-            <div class="grid-item club-box">
-                <div class="box-header-alt club-header">
-                    <h3>전공동아리</h3>
-                    <div class="club-tabs">
-                        <button class="active">MAS</button>
-                        <button>MCA</button>
-                        <button>MoAS</button>
-                        <button>SMART</button>
-                        <button>UR</button>
-                        <button>지능형로봇</button>
-                    </div>
-                </div>
-                <div class="club-content">
-                    <div class="club-info">
-                        <h4>MAS</h4>
-                        <p>MAS는 학교에서 배우는 것 뿐만 아니라 더 나아가 사회에 도움이 될 수 있는 로봇을 직접 만들어 각종 대회에 출전해 학생들끼리 서로 협업을 하며 자신의 전공지식과 역량을 같이 키워나가는 로봇자동화공학부 전공동아리입니다.</p>
-                    </div>
-                    <div class="club-image">
-                        <img src="./club_mas.png" alt="MAS Club">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 자유게시판 -->
-            <div class="grid-item freeboard-box">
-                <div class="box-header-alt">
-                    <h3>자유게시판</h3>
-                    <button id="btn-write-post" class="btn-write">글쓰기</button>
-                </div>
-                <div class="board-list" id="board-list">
-                    <!-- Posts will be loaded here dynamically -->
-                    <p class="loading-text">게시글을 불러오는 중...</p>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Modal for Writing/Editing Post -->
-    <div id="post-modal" class="modal hidden">
-        <div class="modal-content">
-            <h3 id="modal-title">새 게시글 작성</h3>
-            <input type="text" id="post-title" placeholder="제목을 입력하세요">
-            <textarea id="post-body" placeholder="내용을 입력하세요"></textarea>
-            <input type="text" id="post-author" placeholder="작성자 이름">
-            <input type="password" id="post-password" placeholder="비밀번호 (수정/삭제 시 필요)">
-            <div class="modal-actions">
-                <button id="btn-save-post" class="btn-primary">저장</button>
-                <button id="btn-close-modal" class="btn-secondary">취소</button>
-            </div>
+            <div class="loader-number">000</div>
         </div>
     </div>
 
-    <!-- Firebase SDKs (Compat version for simplicity) -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <!-- 2. Smart Floating Navigation (Wembi Style) -->
+    <div class="site-nav hidden">
+        <nav class="nav-bar">
+            <ul class="nav-list">
+                <li class="nav-item active"><a href="#hero" class="nav-link">개요</a></li>
+                <li class="nav-item"><a href="#concepts" class="nav-link">개념 비교</a></li>
+                <li class="nav-item"><a href="#anatomy" class="nav-link">3대 기술</a></li>
+                <li class="nav-item"><a href="#casestudy" class="nav-link">사례 연구</a></li>
+                <li class="nav-item"><a href="#challenges" class="nav-link">기술 장벽</a></li>
+                <li class="nav-item"><a href="#future" class="nav-link">미래 비전</a></li>
+                <li class="nav-item is-highlight"><a href="#feedback" class="nav-link">피드백 게시판</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main id="app-content">
+        <!-- 3. Hero Section (행동하는 AI의 시대) -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg" style="background-image: url('assets/academy_hero.png');"></div>
+            <div class="hero-overlay"></div>
+            
+            <!-- Gooey Liquid Decos -->
+            <div class="gooey-container">
+                <div class="gooey-blob blob-1"></div>
+                <div class="gooey-blob blob-2"></div>
+            </div>
+
+            <div class="container hero-content">
+                <span class="badge js-text">COMPUTING TO PHYSICAL REALITY</span>
+                <h1 class="hero-title js-text">
+                    보는 AI, 그리는 AI를 넘어<br>
+                    <span class="highlight-text">행동하는 AI</span>의 시대로
+                </h1>
+                <p class="hero-subtitle js-text">
+                    가상 컴퓨팅 공간에 머물던 데이터가 중력과 마찰 등 현실의 물리 법칙을 만나 실제 세상을 직접 움직이기 시작했습니다. 픽셀 속 지능이 우리의 물리적 일상으로 걸어 나옵니다.
+                </p>
+                <div class="hero-actions js-text">
+                    <a href="#concepts" class="btn btn-primary magnetic-target">개념 비교보기</a>
+                    <a href="#anatomy" class="btn btn-secondary magnetic-target">기술 해부도</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>SCROLL DOWN</span>
+            </div>
+        </section>
+
+        <!-- 4. Generative AI vs. Physical AI Section -->
+        <section id="concepts" class="section concepts-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge js-text">THE COMPARISON</span>
+                    <h2 class="section-title js-text">두 패러다임의 핵심 차이</h2>
+                    <p class="section-subtitle js-text">
+                        가상 공간에 거주하는 생성형 AI와 3차원 물리 현실을 제어하는 피지컬 AI는 문제 해결 방식부터 안전 요구 사양까지 완전히 다릅니다.
+                    </p>
+                </div>
+
+                <!-- Compare Grid -->
+                <div class="concepts-grid">
+                    <!-- Case Study Graphic Card -->
+                    <div class="concept-example-card reveal-on-scroll">
+                        <div class="example-header">
+                            <i class="fa-solid fa-bottle-water"></i>
+                            <h3>플라스틱 병의 예시</h3>
+                        </div>
+                        <div class="example-body">
+                            <div class="example-col generative">
+                                <h4>Generative AI</h4>
+                                <div class="compare-img-wrapper">
+                                    <img src="assets/compare_generative.png" alt="Generative AI 플라스틱 병 모델링" class="compare-img">
+                                </div>
+                                <p class="compare-desc">가상 공간에서 픽셀과 데이터의 조합으로 플라스틱 병을 정교하게 <strong>'그려냅니다'</strong>.</p>
+                            </div>
+                            <div class="example-col physical">
+                                <h4>Physical AI</h4>
+                                <div class="compare-img-wrapper">
+                                    <img src="assets/compare_physical.png" alt="Physical AI 로봇 팔 작동 실증" class="compare-img">
+                                </div>
+                                <p class="compare-desc">현실의 중력, 마찰력, 재질을 인지하여 플라스틱 병을 <strong>'직접 분리수거'</strong>합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="compare-table-wrapper reveal-on-scroll">
+                        <table class="compare-table">
+                            <thead>
+                                <tr>
+                                    <th>비교 항목</th>
+                                    <th>Generative AI</th>
+                                    <th>Physical AI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="table-key">거주 공간</td>
+                                    <td>디지털 가상 세계 (Virtual Space)</td>
+                                    <td><strong>3차원 물리 현실 세계 (Real World)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-key">작동 물리</td>
+                                    <td>비물리적 텍스트 및 픽셀 연산</td>
+                                    <td><strong>중력, 마찰력, 가속도, 충돌 등 물리 법칙</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-key">실패(환각) 영향</td>
+                                    <td>지우고 다시 쓰면 되는 정보의 오류</td>
+                                    <td><span class="warning-text"><strong>기계 파손 및 인명 피해 등 치명적 사고</strong></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-key">최우선 가치</td>
+                                    <td>다양성, 창의성, 연상 속도</td>
+                                    <td><span class="safe-text"><strong>안전성(Safety) 및 제어 신뢰성</strong></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Anatomy of AI Section (Sticky Scroll) -->
+        <section id="anatomy" class="section anatomy-section">
+            <div class="sticky-wrapper">
+                <div class="anatomy-content">
+                    <div class="container">
+                        <div class="section-header text-center">
+                            <span class="section-badge js-text">ANATOMY OF PHYSICAL AI</span>
+                            <h2 class="section-title js-text">피지컬 AI의 3가지 기술적 골격</h2>
+                            <p class="section-subtitle js-text">
+                                데이터를 실체적 물리 동작으로 바꾸기 위해 지능형 두뇌, 신경, 그리고 시뮬레이터 훈련장이라는 삼각 축이 유기적으로 맞물려 있습니다.
+                            </p>
+                        </div>
+
+                        <div class="anatomy-showcase">
+                            <div class="anatomy-image-wrapper reveal-on-scroll">
+                                <img src="assets/academy_anatomy.png" alt="피지컬 AI 하드웨어 분해도" class="anatomy-img">
+                                
+                                <!-- Interative Pins for Anatomy -->
+                                <div class="anatomy-pin pin-wfm" data-target="tech-wfm" style="top: 22%; left: 45%;">
+                                    <div class="pin-pulse"></div>
+                                    <div class="pin-dot">01</div>
+                                </div>
+
+                                <div class="anatomy-pin pin-rfm active" data-target="tech-rfm" style="top: 50%; left: 41%;">
+                                    <div class="pin-pulse"></div>
+                                    <div class="pin-dot">02</div>
+                                </div>
+
+                                <div class="anatomy-pin pin-matrix" data-target="tech-matrix" style="top: 78%; left: 58%;">
+                                    <div class="pin-pulse"></div>
+                                    <div class="pin-dot">03</div>
+                                </div>
+                            </div>
+
+                            <!-- Tech Cards -->
+                            <div class="anatomy-details">
+                                <div id="tech-wfm" class="tech-card reveal-on-scroll">
+                                    <div class="tech-header">
+                                        <span class="tech-num">01</span>
+                                        <h3>월드 파운데이션 모델 (WFM)</h3>
+                                    </div>
+                                    <p class="tech-meta">World Foundation Model: 지능형 두뇌</p>
+                                    <p class="tech-desc">
+                                        공간, 중력, 충돌 등의 가혹한 지구 물리 법칙을 컴퓨터가 스스로 이해하도록 사전 학습한 인공지능 모델입니다. 로봇이 움직이기 전, 다가올 다음 프레임의 미래 물리 상태를 정확하게 시뮬레이션하고 예측합니다.
+                                    </p>
+                                </div>
+
+                                <div id="tech-rfm" class="tech-card reveal-on-scroll">
+                                    <div class="tech-header">
+                                        <span class="tech-num">02</span>
+                                        <h3>로보틱스 파운데이션 모델 (RFM)</h3>
+                                    </div>
+                                    <p class="tech-meta">Robotics Foundation Model: 신경과 근육</p>
+                                    <p class="tech-desc">
+                                        카메라가 촬영한 영상(시각)과 인간의 음성(언어) 지시를 행동 토큰으로 인지하고 직렬화하여, 로봇의 모터와 관절 각도를 실시간 물리 제어 명령으로 정확히 바꾸어 행동하는 지능입니다.
+                                    </p>
+                                </div>
+
+                                <div id="tech-matrix" class="tech-card reveal-on-scroll">
+                                    <div class="tech-header">
+                                        <span class="tech-num">03</span>
+                                        <h3>다중 물리 시뮬레이터 (Matrix)</h3>
+                                    </div>
+                                    <p class="tech-meta">Physics-Informed Simulator: 가상 훈련장</p>
+                                    <p class="tech-desc">
+                                        로봇이 위험한 실제 도로에 바로 투입되는 대신, 가상의 고속 가상공간 속에서 수만 번 넘어지고 실패하는 과정을 거쳐 최적의 동작과 안전 알고리즘을 안전하게 학습할 수 있도록 지원하는 합성 훈련 매트릭스입니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Case Study: Coexistence (Serve) Section -->
+        <section id="casestudy" class="section case-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge js-text">CASE STUDY</span>
+                    <h2 class="section-title js-text">피지컬 AI의 실제 공존 사례</h2>
+                    <p class="section-subtitle js-text">
+                        도심 속에 자연스럽게 융화되는 배달 로봇은 인간과 공존하기 위해 '친근함'과 '안전성'을 어떻게 물리적 동작으로 실현하는지 보여줍니다.
+                    </p>
+                </div>
+
+                <div class="case-showcase">
+                    <div class="case-img-container reveal-on-scroll">
+                        <img src="assets/interaction_robot.png" alt="사람에게 양보하는 서브 로봇" class="case-img">
+                        <div class="case-img-overlay"></div>
+                    </div>
+
+                    <div class="case-text reveal-on-scroll">
+                        <h3>인간 중심(Human-Centric) 기술의 실증</h3>
+                        <p class="case-intro">
+                            Serve 로봇은 차가운 기계가 아닌 도심 속 안전한 이웃으로 활약합니다. 복잡한 신경망 알고리즘을 인간 친화적인 행동 방식으로 정렬시켰습니다.
+                        </p>
+                        
+                        <div class="hri-steps">
+                            <div class="hri-step">
+                                <div class="hri-icon"><i class="fa-solid fa-person-walking"></i></div>
+                                <h4>01. 배려하는 멈춤 (감속 인지)</h4>
+                                <p>보행자를 발견하면 3m 전방에서부터 자연스럽게 감속하며 위협감을 없앱니다.</p>
+                            </div>
+                            <div class="hri-step">
+                                <div class="hri-icon"><i class="fa-solid fa-face-smile-beam"></i></div>
+                                <h4>02. 감정 교감 (LED 신호)</h4>
+                                <p>빛나는 LED 눈을 통해 양보의 신호를 보내 인간과의 안전 신뢰를 구축합니다.</p>
+                            </div>
+                            <div class="hri-step">
+                                <div class="hri-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+                                <h4>03. 유연한 회피 (경로 우회)</h4>
+                                <p>보행자가 안전하게 도로를 확보하도록 물리적 거리를 계산하여 최소한으로 움직입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Challenges & Engineering Solutions Section -->
+        <section id="challenges" class="section challenges-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge js-text">ENGINEERING BARRIERS & BREAKTHROUGHS</span>
+                    <h2 class="section-title js-text">기술적 한계와 돌파구</h2>
+                    <p class="section-subtitle js-text">
+                        피지컬 AI가 도달해야 하는 세 가지 기술적 장벽과 이를 무너뜨리는 최첨단 엔지니어링 솔루션을 소개합니다.
+                    </p>
+                </div>
+
+                <div class="barriers-grid">
+                    <!-- Card 1 -->
+                    <div class="barrier-card reveal-on-scroll">
+                        <div class="barrier-title-row">
+                            <span class="tag tag-error">장벽 1</span>
+                            <h3>데이터 절대 부족</h3>
+                            <p class="metaphor">"텅 빈 양동이"</p>
+                        </div>
+                        <p class="barrier-desc">
+                            텍스트/이미지와 달리 실제 로봇이 굴러다니며 겪는 실제 주행 및 마찰 물리 데이터는 인터넷에서 긁어모을 수 없어 데이터 양동이가 텅 비어 있습니다.
+                        </p>
+                        <div class="solution-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="solution-content">
+                            <h4><i class="fa-solid fa-wand-magic-sparkles"></i> 무한 합성 데이터 생성</h4>
+                            <p>정밀 물리 법칙을 시뮬레이터 공간에서 계산하여 수백만 시간 분량의 고품질 합성 학습 데이터를 인위적으로 자동 대량 생산하여 극복합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="barrier-card reveal-on-scroll">
+                        <div class="barrier-title-row">
+                            <span class="tag tag-error">장벽 2</span>
+                            <h3>Sim2Real 격차</h3>
+                            <p class="metaphor">"끊어진 다리"</p>
+                        </div>
+                        <p class="barrier-desc">
+                            가상 환경(Sim)에서 완벽히 작동하던 AI 모델이 습기, 진흙, 거친 도로 같은 복잡한 물리 현실(Real)에 나오면 오작동을 유발하는 현상입니다.
+                        </p>
+                        <div class="solution-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="solution-content">
+                            <h4><i class="fa-solid fa-bridge"></i> PINN & Closed-Loop 실증</h4>
+                            <p>물리 정보를 신경망 손실 함수에 직접 제약하는 PINN(물리 정보 신경망)과 가상-실제를 피드백 루프로 연결해 실패 데이터를 실시간 보완하는 폐루프 실증으로 다리를 잇습니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="barrier-card reveal-on-scroll">
+                        <div class="barrier-title-row">
+                            <span class="tag tag-error">장벽 3</span>
+                            <h3>연산 및 의사결정 지연</h3>
+                            <p class="metaphor">"과열된 칩"</p>
+                        </div>
+                        <p class="barrier-desc">
+                            방대한 매트릭스 계산으로 인해 판단 속도가 단 0.1초라도 늦어지면, 현실 세계에서는 제동 거리를 초과해 심각한 충돌 사고가 발생합니다.
+                        </p>
+                        <div class="solution-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="solution-content">
+                            <h4><i class="fa-solid fa-microchip"></i> 엣지 양자화 & 로보가드</h4>
+                            <p>AI 연산 가중치를 4비트로 압축해 기기 내부 칩에서 초저지연 연산을 실행하는 엣지 AI 양자화 기술 및 위험 순간 즉시 개입하는 로보가드(RoboGuard)를 구현합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Future & Roadmaps (왜 지금인가?) Section -->
+        <section id="future" class="section future-section">
+            <div class="future-bg" style="background-image: url('assets/academy_future.png');"></div>
+            <div class="future-overlay"></div>
+            
+            <div class="container">
+                <div class="future-intro text-center">
+                    <span class="section-badge badge-light js-text">WHY NOW & THE ROADMAP</span>
+                    <h2 class="section-title text-white js-text">폭발적 성장의 3대 임계점</h2>
+                    <p class="section-subtitle text-muted js-text">
+                        고령화로 인한 구조적 노동 부족(지능형 대리인 수요), 언어와 관절 토큰을 정렬하는 VLA 모델 성숙, 배터리 및 부품 양산에 따른 최적의 단위 경제성(ROI) 확보로 피지컬 AI 혁명이 바로 지금 시작됩니다.
+                    </p>
+                </div>
+
+                <!-- Timeline Roadmap -->
+                <div class="roadmap-timeline reveal-on-scroll">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-node">
+                        <div class="node-year">2026</div>
+                        <div class="node-content">
+                            <h4>원천 알고리즘 구축</h4>
+                            <p>WFM 및 VLA 다중 모달 신경망의 기술적 신뢰도 및 로봇의 기초 운동성 확보.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node">
+                        <div class="node-year">2028</div>
+                        <div class="node-content">
+                            <h4>단위 경제성 돌파</h4>
+                            <p>하드웨어 양산 가격 하락 및 인력 대비 압도적 투자 대비 수익률(ROI) 수치적 입증.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node">
+                        <div class="node-year">2030</div>
+                        <div class="node-content">
+                            <h4>대한민국, 피지컬 AI 수출 대국</h4>
+                            <p>압도적인 제조 및 산업 현장 실증 데이터를 바탕으로 글로벌 넘버원 테스트베드로 도약.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Real-Time Feedback Board Section -->
+        <section id="feedback" class="feedback-board-section">
+            <div class="universal-board-container">
+                <div class="section-header text-center">
+                    <span class="section-badge js-text">LIVE FEEDBACK</span>
+                    <h2 class="section-title js-text">실시간 피드백 게시판</h2>
+                    <p class="section-subtitle js-text">
+                        피지컬 AI 기술 포털에 대한 자유로운 피드백이나 질문을 실시간으로 남기고 토론해 보세요.
+                    </p>
+                </div>
+
+                <div class="ubb-layout">
+                    <!-- Left Column: Form -->
+                    <div class="ubb-write-panel reveal-on-scroll">
+                        <h3>피드백 작성</h3>
+                        <form id="ubb-post-form">
+                            <div class="ubb-form-row-2col">
+                                <div class="ubb-form-group">
+                                    <label class="ubb-form-label" for="ubb-input-author">작성자</label>
+                                    <input type="text" id="ubb-input-author" class="ubb-form-control" placeholder="이름" required maxlength="12">
+                                </div>
+                                <div class="ubb-form-group">
+                                    <label class="ubb-form-label" for="ubb-input-password">비밀번호</label>
+                                    <input type="password" id="ubb-input-password" class="ubb-form-control" placeholder="비밀번호" required minlength="4" maxlength="16">
+                                </div>
+                            </div>
+                            <div class="ubb-form-group">
+                                <label class="ubb-form-label" for="ubb-input-content">내용</label>
+                                <textarea id="ubb-input-content" class="ubb-form-control" placeholder="피드백이나 의견을 남겨주세요 (최대 300자)" required maxlength="300"></textarea>
+                            </div>
+                            <button type="submit" class="ubb-btn ubb-btn-primary ubb-btn-block">의견 등록하기</button>
+                        </form>
+                    </div>
+
+                    <!-- Right Column: Lists -->
+                    <div class="ubb-list-panel reveal-on-scroll">
+                        <!-- System Notification Banner -->
+                        <div id="ubb-system-status" class="ubb-notice-banner">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>실시간 Firebase가 활성화되었습니다. 다른 브라우저 창과도 실시간으로 동기화됩니다.</span>
+                        </div>
+
+                        <!-- Toolbar with Filters -->
+                        <div class="ubb-toolbar">
+                            <div class="ubb-toolbar-title">등록된 피드백 (<span id="ubb-post-count">0</span>)</div>
+                            <div class="ubb-filter-group">
+                                <button type="button" id="ubb-filter-recent" class="ubb-filter-btn active">최신순</button>
+                                <button type="button" id="ubb-filter-popular" class="ubb-filter-btn">추천순</button>
+                            </div>
+                        </div>
+
+                        <!-- Posts Feed Container -->
+                        <div id="ubb-posts-container">
+                            <!-- JS dynamic insertion or Empty state fallback -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-dot"></span>
+                    <span class="logo-text">PHYSICAL AI</span>
+                </div>
+                <p>가상 지능에서 행동 지능으로, 피지컬 AI의 모든 것</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>학습 리소스</h4>
+                    <a href="#concepts">Generative vs Physical</a>
+                    <a href="#anatomy">WFM & RFM 구조</a>
+                </div>
+                <div class="link-col">
+                    <h4>기술 실증</h4>
+                    <a href="#casestudy">인도 주행 로봇 사례</a>
+                    <a href="#challenges">PINN & Sim2Real 극복</a>
+                </div>
+                <div class="link-col">
+                    <h4>비전</h4>
+                    <a href="#future">대한민국 2030 로드맵</a>
+                    <a href="#subscribe">기술 보고서 신청</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Physical AI Technology Academy. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="magnetic-target"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="magnetic-target"><i class="fa-brands fa-medium"></i></a>
+                    <a href="#" class="magnetic-target"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gooey Effect SVG Filter (Wembi Style) -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none;">
+        <defs>
+            <filter id="gooey">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -10" result="gooey" />
+                <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Custom JS -->
     <script src="app.js"></script>
+
+    <!-- UBB (Universal Business Board) Real-time Engine Module -->
+    <script type="module">
+        // ==========================================
+        // 1. FIREBASE CONFIGURATION (설정 분리)
+        // ==========================================
+        // 다른 프로젝트의 Firebase로 즉시 교체하려면 아래 객체의 값을 설정하세요.
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY_HERE",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // ==========================================
+        // 2. INITIALIZATION & FALLBACK DETECTION
+        // ==========================================
+        let db = null;
+        let isFirebaseActive = false;
+
+        // Firebase SDK 모듈 동적 임포트 시도
+        try {
+            // Config가 플레이스홀더 상태가 아닌 실제 정보가 들어있을 때만 초기화 진행
+            if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY_HERE" && firebaseConfig.projectId !== "YOUR_PROJECT_ID") {
+                const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js");
+                const { getFirestore } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+                
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                isFirebaseActive = true;
+            }
+        } catch (error) {
+            console.warn("Firebase 로드 실패 - 로컬 저장소(LocalStorage) 모드로 자동 전환합니다.", error);
+        }
+
+        // UI 상태 업데이트
+        const systemBanner = document.getElementById('ubb-system-status');
+        if (isFirebaseActive) {
+            systemBanner.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i><span>실시간 데이터베이스(Firebase)가 활성화되었습니다.</span>`;
+            systemBanner.style.backgroundColor = "rgba(97, 229, 192, 0.08)";
+            systemBanner.style.color = "var(--board-accent-color)";
+        } else {
+            systemBanner.innerHTML = `<i class="fa-solid fa-hard-drive"></i><span>로컬 오프라인 데이터베이스 모드 작동 중 (설정 입력 시 서버 연동 가능)</span>`;
+            systemBanner.style.backgroundColor = "rgba(255, 255, 255, 0.04)";
+            systemBanner.style.color = "var(--board-text-secondary)";
+            systemBanner.style.borderColor = "rgba(255, 255, 255, 0.1)";
+        }
+
+        // ==========================================
+        // 3. DATABASE CRUD INTERFACES (Dual Engine)
+        // ==========================================
+        const COLLECTION_NAME = "feedbacks";
+        let localPostsData = JSON.parse(localStorage.getItem('ubb_local_posts')) || [];
+
+        // 로컬 오프라인 모드일 때 로컬스토리지 갱신 함수
+        const saveLocalData = () => {
+            localStorage.setItem('ubb_local_posts', JSON.stringify(localPostsData));
+            triggerLocalUpdate();
+        };
+
+        // 데이터 등록 공통 인터페이스
+        const addPost = async (author, password, content) => {
+            const newPost = {
+                author,
+                password, // 실제 프로덕션 시엔 해시 처리가 필요하나 보안 검증용 평문 비교 유지
+                content,
+                likes: 0,
+                likedBy: [], // IP 또는 로컬 ID 식별을 위한 배열
+                comments: [],
+                createdAt: new Date().toISOString()
+            };
+
+            if (isFirebaseActive) {
+                const { collection, addDoc } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+                await addDoc(collection(db, COLLECTION_NAME), newPost);
+            } else {
+                newPost.id = "local_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
+                localPostsData.push(newPost);
+                saveLocalData();
+            }
+        };
+
+        // 추천(좋아요) 토글 인터페이스
+        const toggleLike = async (postId, userFingerprint) => {
+            if (isFirebaseActive) {
+                const { doc, getDoc, updateDoc, increment, arrayUnion, arrayRemove } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+                const postRef = doc(db, COLLECTION_NAME, postId);
+                const postSnap = await getDoc(postRef);
+                
+                if (postSnap.exists()) {
+                    const data = postSnap.data();
+                    const likedBy = data.likedBy || [];
+                    if (likedBy.includes(userFingerprint)) {
+                        await updateDoc(postRef, {
+                            likes: increment(-1),
+                            likedBy: arrayRemove(userFingerprint)
+                        });
+                    } else {
+                        await updateDoc(postRef, {
+                            likes: increment(1),
+                            likedBy: arrayUnion(userFingerprint)
+                        });
+                    }
+                }
+            } else {
+                const post = localPostsData.find(p => p.id === postId);
+                if (post) {
+                    if (!post.likedBy) post.likedBy = [];
+                    const index = post.likedBy.indexOf(userFingerprint);
+                    if (index > -1) {
+                        post.likedBy.splice(index, 1);
+                        post.likes = Math.max(0, post.likes - 1);
+                    } else {
+                        post.likedBy.push(userFingerprint);
+                        post.likes++;
+                    }
+                    saveLocalData();
+                }
+            }
+        };
+
+        // 게시글 삭제 인터페이스
+        const deletePost = async (postId, inputPassword) => {
+            if (isFirebaseActive) {
+                const { doc, getDoc, deleteDoc } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+                const postRef = doc(db, COLLECTION_NAME, postId);
+                const postSnap = await getDoc(postRef);
+                if (postSnap.exists() && postSnap.data().password === inputPassword) {
+                    await deleteDoc(postRef);
+                    return true;
+                }
+                return false;
+            } else {
+                const index = localPostsData.findIndex(p => p.id === postId);
+                if (index > -1 && localPostsData[index].password === inputPassword) {
+                    localPostsData.splice(index, 1);
+                    saveLocalData();
+                    return true;
+                }
+                return false;
+            }
+        };
+
+        // 댓글 등록 인터페이스
+        const addComment = async (postId, author, password, content) => {
+            const newComment = {
+                id: "comment_" + Date.now() + "_" + Math.random().toString(36).substr(2, 5),
+                author,
+                password,
+                content,
+                createdAt: new Date().toISOString()
+            };
+
+            if (isFirebaseActive) {
+                const { doc, getDoc, updateDoc, arrayUnion } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+                const postRef = doc(db, COLLECTION_NAME, postId);
+                await updateDoc(postRef, {
+                    comments: arrayUnion(newComment)
+                });
+            } else {
+                const post = localPostsData.find(p => p.id === postId);
+                if (post) {
+                    if (!post.comments) post.comments = [];
+                    post.comments.push(newComment);
+                    saveLocalData();
+                }
+            }
+        };
+
+        // 댓글 삭제 인터페이스
+        const deleteComment = async (postId, commentId, inputPassword) => {
+            if (isFirebaseActive) {
+                const { doc, getDoc, updateDoc } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+                const postRef = doc(db, COLLECTION_NAME, postId);
+                const postSnap = await getDoc(postRef);
+                if (postSnap.exists()) {
+                    const data = postSnap.data();
+                    const comments = data.comments || [];
+                    const index = comments.findIndex(c => c.id === commentId);
+                    if (index > -1 && comments[index].password === inputPassword) {
+                        comments.splice(index, 1);
+                        await updateDoc(postRef, { comments });
+                        return true;
+                    }
+                }
+                return false;
+            } else {
+                const post = localPostsData.find(p => p.id === postId);
+                if (post && post.comments) {
+                    const idx = post.comments.findIndex(c => c.id === commentId);
+                    if (idx > -1 && post.comments[idx].password === inputPassword) {
+                        post.comments.splice(idx, 1);
+                        saveLocalData();
+                        return true;
+                    }
+                }
+                return false;
+            }
+        };
+
+
+        // ==========================================
+        // 4. RENDERING & UX PERFORMANCE OPTIMIZATION
+        // ==========================================
+        const postsContainer = document.getElementById('ubb-posts-container');
+        const postCountEl = document.getElementById('ubb-post-count');
+        let currentSortFilter = "recent"; // recent | popular
+        
+        // 기기 식별용 간단 핑거프린트
+        let fingerprint = localStorage.getItem('ubb_fingerprint');
+        if (!fingerprint) {
+            fingerprint = "fp_" + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('ubb_fingerprint', fingerprint);
+        }
+
+        // 로컬 오프라인 데이터 수동 구독 핸들러
+        let localUpdateCallback = null;
+        const triggerLocalUpdate = () => {
+            if (localUpdateCallback) localUpdateCallback(localPostsData);
+        };
+
+        // 실시간 스트림 수신기 연결
+        const initStream = async () => {
+            const updateHandler = (rawPosts) => {
+                // 데이터 가공 및 정렬
+                let processedPosts = rawPosts.map(p => {
+                    // Firebase timestamp 대응
+                    let dateStr = p.createdAt;
+                    if (p.createdAt && typeof p.createdAt.toDate === 'function') {
+                        dateStr = p.createdAt.toDate().toISOString();
+                    }
+                    return { ...p, createdAt: dateStr };
+                });
+
+                // 필터 정렬 적용
+                if (currentSortFilter === "recent") {
+                    processedPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                } else if (currentSortFilter === "popular") {
+                    processedPosts.sort((a, b) => (b.likes || 0) - (a.likes || 0));
+                }
+
+                renderPosts(processedPosts);
+            };
+
+            if (isFirebaseActive) {
+                const { collection, query, onSnapshot } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+                const q = query(collection(db, COLLECTION_NAME));
+                onSnapshot(q, (snapshot) => {
+                    const firebasePosts = [];
+                    snapshot.forEach((doc) => {
+                        firebasePosts.push({ id: doc.id, ...doc.data() });
+                    });
+                    updateHandler(firebasePosts);
+                });
+            } else {
+                localUpdateCallback = updateHandler;
+                triggerLocalUpdate();
+            }
+        };
+
+        // 점진적 DOM 노드 업데이트 (인풋 소실 및 스크롤 튕김 방지 최적화)
+        const renderPosts = (posts) => {
+            postCountEl.textContent = posts.length;
+
+            if (posts.length === 0) {
+                postsContainer.innerHTML = `
+                    <div class="ubb-empty-state">
+                        <i class="fa-regular fa-comment-dots"></i>
+                        <h4>등록된 의견이 없습니다</h4>
+                        <p>첫 번째 소중한 피드백을 기록하는 주인공이 되어보세요!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 기존 카드 돔 엘리먼트 맵핑
+            const existingCards = Array.from(postsContainer.children);
+            const existingCardsMap = {};
+            existingCards.forEach(card => {
+                if (card.dataset.postId) {
+                    existingCardsMap[card.dataset.postId] = card;
+                }
+            });
+
+            // 새로운 포스트 순서대로 임시 컨테이너에 빌드
+            const targetIds = posts.map(p => p.id);
+
+            // 삭제된 돔 정리
+            existingCards.forEach(card => {
+                const cardId = card.dataset.postId;
+                if (cardId && !targetIds.includes(cardId)) {
+                    postsContainer.removeChild(card);
+                }
+            });
+
+            // 포스트 순서 정렬 및 부분 업데이트 수행
+            posts.forEach((post, index) => {
+                const isLiked = post.likedBy && post.likedBy.includes(fingerprint);
+                const firstChar = post.author ? post.author.charAt(0).toUpperCase() : "?";
+                const formattedDate = new Date(post.createdAt).toLocaleString('ko-KR', {
+                    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                });
+
+                // 댓글 렌더링 HTML 빌드
+                const commentsHTML = (post.comments || []).map(comment => `
+                    <div class="ubb-comment-item" data-comment-id="${comment.id}">
+                        <div class="ubb-comment-header">
+                            <span class="ubb-comment-author">${escapeHtml(comment.author)}<span class="ubb-comment-date">${new Date(comment.createdAt).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span></span>
+                            <button type="button" class="ubb-btn-text danger ubb-delete-comment-btn" data-post-id="${post.id}" data-comment-id="${comment.id}">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                        <div class="ubb-comment-body">${escapeHtml(comment.content)}</div>
+                    </div>
+                `).join('');
+
+                const cardHTML = `
+                    <div class="ubb-card-header">
+                        <div class="ubb-card-meta">
+                            <div class="ubb-author-avatar">${escapeHtml(firstChar)}</div>
+                            <div class="ubb-author-info">
+                                <span class="ubb-author-name">${escapeHtml(post.author)}</span>
+                                <span class="ubb-card-date">${formattedDate}</span>
+                            </div>
+                        </div>
+                        <button type="button" class="ubb-btn-text danger ubb-delete-post-btn" data-post-id="${post.id}">
+                            <i class="fa-solid fa-trash-can"></i> 삭제
+                        </button>
+                    </div>
+                    <div class="ubb-card-body">${escapeHtml(post.content)}</div>
+                    <div class="ubb-card-footer">
+                        <div class="ubb-actions-left">
+                            <button type="button" class="ubb-btn-text ubb-like-btn ${isLiked ? 'active' : ''}" data-post-id="${post.id}">
+                                <i class="${isLiked ? 'fa-solid' : 'fa-regular'} fa-thumbs-up"></i> 추천 <span>(${post.likes || 0})</span>
+                            </button>
+                            <button type="button" class="ubb-btn-text ubb-toggle-comments-btn" data-post-id="${post.id}">
+                                <i class="fa-regular fa-comments"></i> 댓글 <span>(${(post.comments || []).length})</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Nested Comments Block (접혀있는 상태로 인풋 보존) -->
+                    <div class="ubb-comment-section" id="comments-section-${post.id}" style="display: none;">
+                        <div class="ubb-comment-title">
+                            <i class="fa-regular fa-comments"></i> 댓글 목록
+                        </div>
+                        <div class="ubb-comments-list" id="comments-list-${post.id}">
+                            ${commentsHTML || '<p style="font-size:0.85rem; color:var(--board-text-secondary); opacity:0.6; padding:8px 0;">첫 번째 댓글을 작성해 보세요.</p>'}
+                        </div>
+                        <form class="ubb-reply-form" data-post-id="${post.id}">
+                            <h5>댓글 쓰기</h5>
+                            <div class="ubb-form-row-2col">
+                                <div class="ubb-form-group">
+                                    <input type="text" class="ubb-form-control ubb-reply-author" placeholder="이름" required maxlength="10">
+                                </div>
+                                <div class="ubb-form-group">
+                                    <input type="password" class="ubb-form-control ubb-reply-password" placeholder="비밀번호" required minlength="4" maxlength="12">
+                                </div>
+                            </div>
+                            <div class="ubb-form-group" style="margin-bottom:10px;">
+                                <input type="text" class="ubb-form-control ubb-reply-content" placeholder="댓글 내용을 작성하세요 (최대 100자)" required maxlength="100">
+                            </div>
+                            <button type="submit" class="ubb-btn ubb-btn-primary ubb-btn-block" style="padding: 8px 16px; font-size:0.85rem;">댓글 등록</button>
+                        </form>
+                    </div>
+                `;
+
+                let targetCard = existingCardsMap[post.id];
+
+                if (targetCard) {
+                    // 기존 카드가 있으면 내용 업데이트 (상태 보존식 업데이트)
+                    // 현재 활성화된 댓글 섹션 노출 상태값 및 댓글 작성폼 안의 임시 텍스트 백업
+                    const commentsSection = targetCard.querySelector(`.ubb-comment-section`);
+                    const isCommentsVisible = commentsSection ? commentsSection.style.display !== 'none' : false;
+                    
+                    const replyAuthorVal = targetCard.querySelector('.ubb-reply-author') ? targetCard.querySelector('.ubb-reply-author').value : "";
+                    const replyPassVal = targetCard.querySelector('.ubb-reply-password') ? targetCard.querySelector('.ubb-reply-password').value : "";
+                    const replyContentVal = targetCard.querySelector('.ubb-reply-content') ? targetCard.querySelector('.ubb-reply-content').value : "";
+
+                    // 카드 내부 HTML 갱신
+                    targetCard.innerHTML = cardHTML;
+
+                    // 상태 복원
+                    const newCommentsSection = targetCard.querySelector(`.ubb-comment-section`);
+                    if (newCommentsSection) {
+                        newCommentsSection.style.display = isCommentsVisible ? 'block' : 'none';
+                    }
+                    if (replyAuthorVal && targetCard.querySelector('.ubb-reply-author')) {
+                        targetCard.querySelector('.ubb-reply-author').value = replyAuthorVal;
+                    }
+                    if (replyPassVal && targetCard.querySelector('.ubb-reply-password')) {
+                        targetCard.querySelector('.ubb-reply-password').value = replyPassVal;
+                    }
+                    if (replyContentVal && targetCard.querySelector('.ubb-reply-content')) {
+                        targetCard.querySelector('.ubb-reply-content').value = replyContentVal;
+                    }
+                } else {
+                    // 기존 카드가 없으면 새로 생성해서 컨테이너에 추가
+                    targetCard = document.createElement('div');
+                    targetCard.className = 'ubb-card';
+                    targetCard.dataset.postId = post.id;
+                    targetCard.innerHTML = cardHTML;
+                    postsContainer.appendChild(targetCard);
+                }
+
+                // 돔 노드 순서 맞춤 정렬
+                if (postsContainer.children[index] !== targetCard) {
+                    postsContainer.insertBefore(targetCard, postsContainer.children[index]);
+                }
+            });
+        };
+
+        // HTML 이스케이프 유틸리티
+        const escapeHtml = (text) => {
+            if (!text) return "";
+            return text
+                .toString()
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        };
+
+        // ==========================================
+        // 5. EVENT LISTENERS & ACTION BINDINGS
+        // ==========================================
+        
+        // 1) 신규 피드백 등록 전송
+        document.getElementById('ubb-post-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const authorInput = document.getElementById('ubb-input-author');
+            const passInput = document.getElementById('ubb-input-password');
+            const contentInput = document.getElementById('ubb-input-content');
+
+            try {
+                await addPost(authorInput.value, passInput.value, contentInput.value);
+                authorInput.value = '';
+                passInput.value = '';
+                contentInput.value = '';
+                alert('소중한 피드백이 등록되었습니다!');
+            } catch (error) {
+                alert('등록 중 에러가 발생했습니다: ' + error.message);
+            }
+        });
+
+        // 2) 정렬 필터 토글 이벤트
+        document.getElementById('ubb-filter-recent').addEventListener('click', function() {
+            document.getElementById('ubb-filter-popular').classList.remove('active');
+            this.classList.add('active');
+            currentSortFilter = "recent";
+            initStream();
+        });
+
+        document.getElementById('ubb-filter-popular').addEventListener('click', function() {
+            document.getElementById('ubb-filter-recent').classList.remove('active');
+            this.classList.add('active');
+            currentSortFilter = "popular";
+            initStream();
+        });
+
+        // 3) 피드백 카드 내 이벤트 위임 (추천, 삭제, 댓글 토글, 댓글 등록, 댓글 삭제)
+        postsContainer.addEventListener('click', async (e) => {
+            // A. 추천 버튼
+            const likeBtn = e.target.closest('.ubb-like-btn');
+            if (likeBtn) {
+                const postId = likeBtn.dataset.postId;
+                likeBtn.disabled = true;
+                await toggleLike(postId, fingerprint);
+                likeBtn.disabled = false;
+                return;
+            }
+
+            // B. 댓글 토글 버튼
+            const commentsToggleBtn = e.target.closest('.ubb-toggle-comments-btn');
+            if (commentsToggleBtn) {
+                const postId = commentsToggleBtn.dataset.postId;
+                const section = document.getElementById(`comments-section-${postId}`);
+                if (section) {
+                    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+                }
+                return;
+            }
+
+            // C. 포스트 삭제 버튼
+            const deletePostBtn = e.target.closest('.ubb-delete-post-btn');
+            if (deletePostBtn) {
+                const postId = deletePostBtn.dataset.postId;
+                const inputPass = prompt('게시글을 삭제하시겠습니까? 등록 시 입력한 비밀번호를 입력해 주세요:');
+                if (inputPass) {
+                    const success = await deletePost(postId, inputPass);
+                    if (success) {
+                        alert('의견이 성공적으로 삭제되었습니다.');
+                    } else {
+                        alert('비밀번호가 일치하지 않습니다.');
+                    }
+                }
+                return;
+            }
+
+            // D. 댓글 삭제 버튼
+            const deleteCommentBtn = e.target.closest('.ubb-delete-comment-btn');
+            if (deleteCommentBtn) {
+                const postId = deleteCommentBtn.dataset.postId;
+                const commentId = deleteCommentBtn.dataset.commentId;
+                const inputPass = prompt('댓글을 삭제하시겠습니까? 비밀번호를 입력해 주세요:');
+                if (inputPass) {
+                    const success = await deleteComment(postId, commentId, inputPass);
+                    if (success) {
+                        alert('댓글이 삭제되었습니다.');
+                    } else {
+                        alert('비밀번호가 올바르지 않습니다.');
+                    }
+                }
+                return;
+            }
+        });
+
+        // 4) 댓글 전송 폼 이벤트 위임 (submit 이벤트 위임)
+        postsContainer.addEventListener('submit', async (e) => {
+            const replyForm = e.target.closest('.ubb-reply-form');
+            if (replyForm) {
+                e.preventDefault();
+                const postId = replyForm.dataset.postId;
+                const authorInput = replyForm.querySelector('.ubb-reply-author');
+                const passwordInput = replyForm.querySelector('.ubb-reply-password');
+                const contentInput = replyForm.querySelector('.ubb-reply-content');
+
+                try {
+                    await addComment(postId, authorInput.value, passwordInput.value, contentInput.value);
+                    authorInput.value = '';
+                    passwordInput.value = '';
+                    contentInput.value = '';
+                } catch (err) {
+                    alert('댓글 등록 실패: ' + err.message);
+                }
+            }
+        });
+
+        // 실시간 스트림 데이터 수신 시작
+        initStream();
+    </script>
 </body>
 </html>
